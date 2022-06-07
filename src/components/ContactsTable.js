@@ -16,6 +16,10 @@ const ContactsTable = ({persons, filter, deleteHandler}) => {
   //  create a table containing each persons name and number
     <table>
       <tbody>
+      <tr>
+        <th>Name</th><th>Type</th><th>Phone #</th>
+      </tr>
+
         {personsToShow.map((person) => 
           <ContactsLine key={person.id} person={person} deleteHandler={deleteHandler}/>
         )}

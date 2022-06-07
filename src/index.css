@@ -17,3 +17,8 @@
   padding: 10px;
   margin-bottom: 10px;
 }
+
+th, td {
+  border: 1px solid;
+  padding: 3px 10px;
+}

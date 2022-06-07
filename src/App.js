@@ -15,6 +15,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('(306)-')
   const [filter, setFilter] = useState('')
+  const [passType, setPassType] = useState('')
 
   //piece of state for notification info
   const [notification, setNotification] = useState({message: null, type: null})
@@ -32,7 +33,8 @@ const App = () => {
     // create a temp object for storing submitted data
     const nameObject = { 
       name: newName,
-      number: newNumber
+      number: newNumber,
+      passType: passType
     }
 
     // check for duplicates
@@ -97,10 +99,14 @@ const App = () => {
   const handleFilter = (event) => {
     setFilter(event.target.value)
   }
+  //handler for type
+  const handlePassType = (event) => {
+    setPassType(event.target.value)
+  }
 
   //store handler referecnes in array to pass them to component easier.
-  const handlers = {handleFilter, addName, handleNameInput, handleNumberInput}
-  let states = {filter, newName, newNumber}
+  const handlers = {handleFilter, addName, handleNameInput, handleNumberInput, handlePassType}
+  let states = {filter, newName, newNumber, passType}
 
   return (
     <div>
@@ -109,7 +115,7 @@ const App = () => {
       <Input label='Search ' state={states.filter} handler={handlers.handleFilter} />
       <h2>New Entry</h2>
       <NewContactsForm handlers={handlers} states={states}/>
-      <h2>Names</h2>
+      <h2>Passes</h2>
       <ContactsTable persons={persons} filter={filter} deleteHandler={deleteHandler} />
     </div>
   )
