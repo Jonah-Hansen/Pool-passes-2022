@@ -13,7 +13,7 @@ const App = () => {
 
   // pieces of state for use with the input fields
   const [newName, setNewName] = useState('')
-  const [newNumber, setNewNumber] = useState('')
+  const [newNumber, setNewNumber] = useState('(306)-')
   const [filter, setFilter] = useState('')
 
   //piece of state for notification info
@@ -46,7 +46,7 @@ const App = () => {
           .then(returnedPerson => {
             setPersons(persons.map(person => person.id !== dupe[0].id ? person : returnedPerson))
             setNewName('')
-            setNewNumber('')
+            setNewNumber('(306)-')
             setNotification({message: `modified number for ${returnedPerson.name}`, type: 'success'}) 
           setTimeout(() => {
             setNotification({message: null, type: null})
@@ -67,7 +67,7 @@ const App = () => {
         .then(returnedPerson => {
           setPersons(persons.concat(returnedPerson))
           setNewName('')
-          setNewNumber('')
+          setNewNumber('(306)-')
           setNotification({message: `added ${returnedPerson.name}`, type: 'success'}) 
           setTimeout(() => {
             setNotification({message: null, type: null})
@@ -104,12 +104,12 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h2>2022 Seasons Passes</h2>
       <Notification message={notification.message} type={notification.type} />
-      <Input label='filter shown with ' state={states.filter} handler={handlers.handleFilter} />
-      <h2>add a new</h2>
+      <Input label='Search ' state={states.filter} handler={handlers.handleFilter} />
+      <h2>New Entry</h2>
       <NewContactsForm handlers={handlers} states={states}/>
-      <h2>Numbers</h2>
+      <h2>Names</h2>
       <ContactsTable persons={persons} filter={filter} deleteHandler={deleteHandler} />
     </div>
   )
