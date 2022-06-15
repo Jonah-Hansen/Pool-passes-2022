@@ -23,7 +23,6 @@ function createWindow() {
     webPreferences: {
       // nodeIntegration: true,
       // enableRemoteModule: true,
-      preload: path.join(__dirname, "preload.js") // add "preload"
     }
   });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
