@@ -116,7 +116,7 @@ const App = () => {
 
   return (
     <div>
-      <h2>2022 Seasons Passes</h2>
+      <h2>Luseland Pool Seasons Passes</h2>
       <Notification message={notification.message} type={notification.type} />
       <Input label='Search ' state={states.filter} handler={handlers.handleFilter} />
       <button type='button' onClick={() => setFilter('')}>Clear</button>
