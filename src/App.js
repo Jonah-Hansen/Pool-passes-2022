@@ -32,6 +32,7 @@ const App = () => {
     event.preventDefault()
     // create a temp object for storing submitted data
     const nameObject = { 
+      id: (parseInt(persons[persons.length - 1].id) + 1),
       name: newName,
       number: newNumber,
       passType: passType
@@ -70,7 +71,7 @@ const App = () => {
           setPersons(persons.concat(returnedPerson))
           setNewName('')
           setNewNumber('(306)-')
-          setNotification({message: `added ${returnedPerson.name}`, type: 'success'}) 
+          setNotification({message: `added ${newName}`, type: 'success'}) 
           setTimeout(() => {
             setNotification({message: null, type: null})
           }, 5000)
@@ -104,8 +105,13 @@ const App = () => {
     setPassType(event.target.value)
   }
 
+  const handleCancel = () => {
+    setNewName('')
+    setNewNumber('(306)-')
+  }
+
   //store handler referecnes in array to pass them to component easier.
-  const handlers = {handleFilter, addName, handleNameInput, handleNumberInput, handlePassType}
+  const handlers = {handleFilter, addName, handleNameInput, handleNumberInput, handlePassType, handleCancel}
   let states = {filter, newName, newNumber, passType}
 
   return (
@@ -113,6 +119,7 @@ const App = () => {
       <h2>2022 Seasons Passes</h2>
       <Notification message={notification.message} type={notification.type} />
       <Input label='Search ' state={states.filter} handler={handlers.handleFilter} />
+      <button type='button' onClick={() => setFilter('')}>Clear</button>
       <h2>New Entry</h2>
       <NewContactsForm handlers={handlers} states={states}/>
       <h2>Passes</h2>

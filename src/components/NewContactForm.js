@@ -39,6 +39,7 @@ const NewContactForm = ({handlers, states}) => {
         </div>
         <div>
           <button type="submit">add</button>
+          <button type="button" onClick={handlers.handleCancel}>Cancel</button>
         </div>
       </form>
   </>

@@ -1,9 +1,10 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/persons'
+const baseUrl = 'https://sheet.best/api/sheets/28f17c35-78ad-45f1-889c-1ae2354d271a'
 
 //request the object from db and return the body of the response
 const getAll = () => {
   const request = axios.get(baseUrl)
+  console.log(request);
   return request.then(response => response.data)
 }
 
