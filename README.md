@@ -1,3 +1,8 @@
+# Pool Passes app
+
+I Created this app for the town of luseland to be used as a better way to keep a record of the season pass holders of the luseland pool. it connects to a google sheet that is used as its database and allows the user to view a list of all pass holder and their information, and most importantly, search for pass holders to quickly verify that a guest has a valid pass.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
